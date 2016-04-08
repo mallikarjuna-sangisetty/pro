@@ -1,10 +1,9 @@
 package com.project.traffic.mail;
 
-import java.io.IOException;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -17,7 +16,8 @@ import javax.mail.internet.MimeMultipart;
 import org.apache.log4j.Logger;
 
 import com.project.traffic.constants.MailConstants;
-import com.project.traffic.model.TransportaionDetails;
+import com.project.traffic.model.BookTicket;
+import com.project.traffic.model.CoPassenger;
 import com.project.traffic.model.User;
 import com.project.traffic.security.SecurityUtil;
 import com.project.traffic.util.FileUtil;
@@ -100,18 +100,42 @@ public class SSLMailUtil {
 		} catch (Exception e) {
 			LOGGER.info("Failed to send forgot password mail",e);
 		}
-		return false;
+		return true;
 	}
 	
-	public static boolean sendTicketBookingMail(User user,TransportaionDetails details) {
+	public static boolean sendTicketBookingMail(BookTicket ticket,Set<CoPassenger> coPassengers,String status) {
 		try {
 			String body = FileUtil.readFile("success_book.html");
-			body = body.replaceAll("<tomail>", (user.getEmail() == null)?"":user.getEmail());
-			sendMail((user.getEmail() == null)?"":user.getEmail(), MailConstants.SUCCESS_BOOK, body);
+			body = body.replaceAll("<bookid>", ticket.getId()+"");
+			body = body.replaceAll("<bookdate>", ticket.getBookedDate());
+			body = body.replaceAll("<source>", ticket.getTransportaionDetails().getSource());
+			body = body.replaceAll("<destination>", ticket.getTransportaionDetails().getDestination());
+			body = body.replaceAll("<traveldate>", ticket.getTravelDate());
+			body = body.replaceAll("<arrival>", ticket.getTransportaionDetails().getArrival());
+			body = body.replaceAll("<departure>", ticket.getTransportaionDetails().getDeparture());
+			body = body.replaceAll("<company>", MailConstants.COMPANY);
+			body = body.replaceAll("<duration>", ticket.getTransportaionDetails().getJourneyTime());
+			body = body.replaceAll("<airline>", ticket.getTransportaionDetails().getProvider());
+			body = body.replaceAll("<age>", ticket.getUser().getAge()+"");
+			body = body.replace("<ticketid>", ticket.getId()+ticket.getTransportaionDetails().getSource().substring(1, 3));
+			body = body.replaceAll("<passenger>", ticket.getUser().getFirstName()+" "+ticket.getUser().getLastName());
+			
+			String temp = "";
+			for (CoPassenger coPassenger : coPassengers) {
+				String copass = FileUtil.readFile("copassanger.html");
+				copass = copass.replaceAll("<airline>", ticket.getTransportaionDetails().getProvider());
+				copass = copass.replaceAll("<age>", coPassenger.getAge()+"");
+				copass = copass.replace("<ticketid>", coPassenger.getId()+ticket.getTransportaionDetails().getSource().substring(1, 3));
+				copass = copass.replaceAll("<passenger>", coPassenger.getName());
+				temp += copass;
+			}
+			
+			body = body.replace("<copassengers>", temp);
+			sendMail(ticket.getUser().getEmail() ,status, body);
 			return true;
 		} catch (Exception e) {
 			LOGGER.info("Failed to send forgot password mail",e);
 		}
-		return false;
+		return true;
 	}
 }

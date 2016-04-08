@@ -1,7 +1,6 @@
 
 package com.project.traffic.uiImpl;
 
-import com.project.traffic.controller.BookingController;
 import com.project.traffic.enums.MainEnum;
 import com.project.traffic.exception.StandardException;
 import com.project.traffic.session.AppSession;
@@ -9,7 +8,7 @@ import com.project.traffic.util.InputFromConsoleUtil;
 
 public class UserMenu {
   
-	UserMenuHandler userMenuHandler;
+	private UserMenuHandler userMenuHandler;
 	
     public static enum UserMenuEnum implements MainEnum{
         BOOK(1,"Book"),
@@ -49,8 +48,10 @@ public class UserMenu {
                 	userMenuHandler.handleBooking();
                     break;
                 case CANCEL:
+                	userMenuHandler.cancelTicket();
                     break;
                 case BOOK_HISTORY:
+                	userMenuHandler.showBookingHistory();
                     break;
                 case SIGNOUT:
                 	AppSession.session.clear();

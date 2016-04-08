@@ -1,7 +1,6 @@
 package com.project.traffic.util;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -119,7 +118,7 @@ public class InputFromConsoleUtil {
 
 	/**
 	 * Read an double and is optional by pressing enter.
-	 * If enter is pressed with out any value then 0 will be returned
+	 * If enter is pressed with out any value then 0 will be returned    
 	 * @param message
 	 * @return
 	 */
@@ -143,7 +142,6 @@ public class InputFromConsoleUtil {
 		for (MainEnum c : enumType.getEnumConstants()) {
 			System.out.println(c.value() + "." + c.getMessage() );
 		}
-		System.out.println("****************************************************************************************************************************************************");
 		int inputChoice ;
 		do{
 			inputChoice = InputFromConsoleUtil.getInteger(ConsoleMessageConstants.TAKE_CHOICE+" :Range(1-"+enumType.getEnumConstants().length+")");

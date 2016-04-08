@@ -11,7 +11,7 @@ public class SSLMailUtilTest {
 	@Test
 	public void sendWelcomeMail() {
 		User user = new User();
-		user.setEmail("1arjunshinde2@gmail.com");
+		user.setEmail("kavya@gmail.com");
 		String body = FileUtil.readFile("bodyContent.html");
 		body = body.replaceAll("<tomail>", user.getEmail());
 		body = body.replaceAll("<company>", MailConstants.COMPANY);
@@ -24,7 +24,7 @@ public class SSLMailUtilTest {
 	@Test
 	public void sendForgotPasswordMail() {
 		User user = new User();
-		user.setEmail("1arjunshinde2@gmail.com");
+		user.setEmail("kavya@gmail.com");
 		String body = FileUtil.readFile("passwordRecovery.html");
 		body = body.replaceAll("<tomail>", user.getEmail());
 		//body = body.replaceAll("<password>", user.getPassword());

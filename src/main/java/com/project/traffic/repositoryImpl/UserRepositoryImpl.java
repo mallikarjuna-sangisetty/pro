@@ -51,6 +51,15 @@ public class UserRepositoryImpl implements UserRepository{
 	}
 
 	@Override
+	public User findById(int id) {
+	    Session session = DataBaseUtil.getSession();
+            Object user = session.createCriteria(User.class).add(Restrictions.eq("id", id)).uniqueResult();
+            if(user == null)
+                    return null;
+            session.close();
+            return (User)user;
+           }
+	@Override
 	public void deleteByUsername(String username) {
 		Session session = DataBaseUtil.getSession();
 		session.beginTransaction();
@@ -77,7 +86,7 @@ public class UserRepositoryImpl implements UserRepository{
 			return true;
 		}
 		session.close();
-		return false;
+		return true;
 	}
 
 	@Override
@@ -86,7 +95,7 @@ public class UserRepositoryImpl implements UserRepository{
 		Object user = session.createCriteria(User.class).add(Restrictions.eq("userName", username)).uniqueResult();
 		if(user == null)
 			return null;
-		session.close();
+		//session.close();
 		return (User)user;
 	}
 

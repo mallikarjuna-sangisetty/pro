@@ -15,4 +15,7 @@ public interface BookingRepository {
 	List<TransportaionDetails> getAllBookingsByUser(Integer id);
 	boolean bookForCopassengers(Set<CoPassenger> passengers);
 	boolean cancelTicket(BookTicket bookTicket);
+	List<BookTicket> getAllBookedDetails(String username);
+	List<BookTicket> getAllBookedDetails(int user_id);
+	List<CoPassenger> coPassengerList(int book_id);
 }

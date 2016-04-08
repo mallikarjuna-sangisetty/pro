@@ -29,4 +29,17 @@ public class BookingController {
 	public List<TransportaionDetails> findByProvider(String provider) {
 		return bookingService.findByProvider(provider);
 	}
+	public List<BookTicket> getAllBookedDetails(String username) {
+		return bookingService.getAllBookedDetails(username);
+	}
+	public List<BookTicket> getAllBookedDetails(int user_id){
+		return bookingService.getAllBookedDetails(user_id);
+	}
+	public boolean cancelTicket(BookTicket bookTicket){
+		return bookingService.cancelTicket(bookTicket);
+	}
+	
+	public List<CoPassenger> coPassengerList(int book_id){
+		return bookingService.coPassengerList(book_id);
+	}
 }

@@ -10,6 +10,7 @@ import com.project.traffic.model.TransportaionDetails;
 import com.project.traffic.repository.BookingRepository;
 import com.project.traffic.repositoryImpl.BookingRepositoryImpl;
 import com.project.traffic.service.BookingService;
+import com.project.traffic.util.DateUtil;
 
 public class BookingServiceImpl implements BookingService{
 
@@ -39,7 +40,20 @@ public class BookingServiceImpl implements BookingService{
 	@Override
 	public boolean cancelTicket(BookTicket bookTicket) {
 		bookTicket.setStatus(StatusType.INACTIVE);
+		bookTicket.setCancelledDate(DateUtil.getDate());
 		return bookingRepository.cancelTicket(bookTicket);
 	}
+	@Override
+	public List<BookTicket> getAllBookedDetails(String username) {
+		return bookingRepository.getAllBookedDetails(username);
+	}
 
+	@Override
+	public List<BookTicket> getAllBookedDetails(int user_id) {
+		return bookingRepository.getAllBookedDetails(user_id);
+	}
+	@Override
+	public List<CoPassenger> coPassengerList(int book_id) {
+		return bookingRepository.coPassengerList(book_id);
+		}
 }

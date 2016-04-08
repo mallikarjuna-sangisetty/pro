@@ -1,7 +1,6 @@
 package com.project.traffic.util;
 
 import com.project.traffic.exception.StandardException;
-import com.project.traffic.persistenceUtil.DataBaseUtil;
 
 public class Util {
 

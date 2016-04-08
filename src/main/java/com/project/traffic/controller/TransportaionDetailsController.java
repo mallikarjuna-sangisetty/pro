@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import com.project.traffic.model.TransportaionDetails;
@@ -64,8 +65,16 @@ public class TransportaionDetailsController {
     	
     }
     
-    public DefaultPieDataset generateReportByAirlinesVsFlights(){
-    	return detailsService.getData();
+    public DefaultPieDataset getData(String query,int top){
+    	return detailsService.getData(query,top);
+    }
+    
+    public DefaultCategoryDataset generateReportByAirlinesVsFlightsBarChart(){
+        return detailsService.getDataBarChart();
+    }
+    
+    public DefaultCategoryDataset getDataForLineChart(String query,int top){
+        return detailsService.getDataForLineChart(query, top);
     }
     
 }

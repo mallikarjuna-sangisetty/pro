@@ -195,7 +195,7 @@ public class User {
 	public void setTickets(List<BookTicket> tickets) {
 		this.tickets = tickets;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
 				+ ", password=" + password + ", gender=" + gender + ", email=" + email + ", phone=" + phone
@@ -203,7 +203,7 @@ public class User {
 				+ ", age=" + age + ", tickets=" + tickets + ", status=" + status + "]";
 	}
 
-
+*/
 
 
 

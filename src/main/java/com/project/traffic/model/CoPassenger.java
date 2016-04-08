@@ -2,13 +2,12 @@ package com.project.traffic.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.project.traffic.enums.EnumUtils.StatusType;
 
 @Entity
 @Table(name="coPassenger",catalog="trafficAnalysis")
@@ -19,6 +18,7 @@ public class CoPassenger {
 	private int id;
 	private String name;
 	private int age;
+	private StatusType status;
 	
 	private int book_id;
 	
@@ -45,6 +45,12 @@ public class CoPassenger {
 	}
 	public void setBook_id(int book_id) {
 		this.book_id = book_id;
+	}
+	public StatusType getStatus() {
+		return status;
+	}
+	public void setStatus(StatusType status) {
+		this.status = status;
 	}
 	
 }

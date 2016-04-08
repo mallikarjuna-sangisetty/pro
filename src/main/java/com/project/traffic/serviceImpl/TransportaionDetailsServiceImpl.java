@@ -2,6 +2,7 @@ package com.project.traffic.serviceImpl;
 
 import java.util.List;
 
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 import com.project.traffic.model.TransportaionDetails;
@@ -21,8 +22,16 @@ public class TransportaionDetailsServiceImpl implements TransportaionDetailsServ
 		return repository.feed(details);
 	}
 	@Override
-	public DefaultPieDataset getData() {
-		return repository.getData();
+	public DefaultPieDataset getData(String query,int top) {
+		return repository.getData(query,top);
 	}
-
+	@Override
+	public DefaultCategoryDataset getDataBarChart() {
+	    return repository.getDataBarChart();
+        }
+	
+	@Override
+	public DefaultCategoryDataset getDataForLineChart(String query,int top){
+	    return repository.getDataForLineChart(query, top);
+	}
 }

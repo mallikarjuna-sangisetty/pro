@@ -76,6 +76,11 @@ public class MainMenu {
 					case LOGIN:
 						if(userProfileHandler.validateLogin()){
 							User user = (User)AppSession.session.get("loginUser");
+							if(user.getStatus() == com.project.traffic.enums.EnumUtils.StatusType.INACTIVE.value())
+							{
+							    JOptionPane.showMessageDialog(null,"Your account has been deactivated.Please contact admin.","Warning",JOptionPane.ERROR_MESSAGE);
+							    break;
+							}
 							if(user.getUserType() == 1){
 								userMenu.userMenu();
 							}else{

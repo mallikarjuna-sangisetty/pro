@@ -14,5 +14,6 @@ public interface UserRepository {
 	void deleteById(int id);
 	boolean validateLogin(String username, String password);
 	User findByLogin(String username);
+	User findById(int id);
 
 }

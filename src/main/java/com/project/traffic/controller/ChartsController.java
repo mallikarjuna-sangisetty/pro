@@ -36,11 +36,20 @@ public class ChartsController  extends Applet{
  
         renderchartImage(chart);
     }
+    
+
+    public static void generateLineChart(String title,String categoryAxisLabel,String valueAxisLabel,DefaultCategoryDataset  dataset) throws IOException {
+        
+ 
+        JFreeChart chart = ChartFactory.createLineChart(title, categoryAxisLabel, valueAxisLabel, dataset, PlotOrientation.VERTICAL, true,true,false);
+ 
+        renderchartImage(chart);
+    }
    
     public static void renderchartImage(JFreeChart chart) throws IOException{
     	int width = 640;
         int height = 480; 
-        File file = new File( "D:\\temp\\temp"+Calendar.getInstance().getTimeInMillis()+".jpeg" ); 
+        File file = new File( "C:\\temp\\temp"+Calendar.getInstance().getTimeInMillis()+".jpeg" ); 
         file.createNewFile();
         ChartUtilities.saveChartAsJPEG( file , chart , width , height );
         

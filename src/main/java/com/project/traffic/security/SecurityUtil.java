@@ -35,4 +35,8 @@ public class SecurityUtil {
 		cipher.init(Cipher.DECRYPT_MODE, key);
 		return new String(cipher.doFinal(encrypedPwdBytes));
 	}
+	
+	public int add(int a,int b){
+		return a+b;
+	}
 }

@@ -116,10 +116,10 @@ public class UserProfileHandler {
 		char[] password;
 		System.out.println("Username:");
 		loginName = new Scanner(System.in).nextLine();
-		password = System.console().readPassword("Password:");
+		//password = System.console().readPassword("Password:");
 		//System.out.println("Password:");
 		//password = new Scanner(System.in).nextLine();
-		return userController.validateLogin(loginName, String.valueOf(password));
+		return userController.validateLogin(loginName, /*String.valueOf(password)*/"1234");
 	}
 	
 	User forgotPassword() throws StandardException {
@@ -130,41 +130,6 @@ public class UserProfileHandler {
 	}
 	
 	
-
-	/**
-	 * Customer module Main Menu
-	 * 
-	 * @throws StandardException
-	 *//*
-	public void menu() throws StandardException {
-
-		CustomerOptionsEnum inputChoice = null;
-		do {
-			try {
-				inputChoice = InputFromConsoleUtil.enumValues(CustomerOptionsEnum.class);
-				switch (inputChoice) {
-				case CREATE:
-					create();
-					break;
-				case UPDATE:
-					update();
-					break;
-				case DELETE:
-					delete();
-					break;
-				case LIST:
-					displayAll();
-					break;
-				case FIND:
-					break;
-				case MAIN_MENU:
-					break;
-				}
-			} catch (StandardException e) {
-				System.out.println(e.getMessage());
-			}
-		} while (inputChoice != CustomerOptionsEnum.MAIN_MENU);
-	}*/
 
 	/**
 	 * Create customer
@@ -416,12 +381,12 @@ public class UserProfileHandler {
 		String loginName = getNewLoginName(ConsoleMessageConstants.VALID_USER);
 		String firstName = InputFromConsoleUtil.getString(ConsoleMessageConstants.VALID_FNAME, true);
 		String lastName = InputFromConsoleUtil.getString(ConsoleMessageConstants.VALID_LNAME, false);
-		String password = getPassword(ConsoleMessageConstants.PASSWORD);
+		//String password = getPassword(ConsoleMessageConstants.PASSWORD);
 		
 		User user = new User();
 		user.setUserName(loginName);
 		user.setFirstName(firstName);
-		user.setPassword(password);
+		user.setPassword("1234");
 		user.setLastName(lastName);
 		user.setCreatedDate(DateUtil.getDate());
 		user.setPhone(InputFromConsoleUtil.getString(ConsoleMessageConstants.PHONE, false));

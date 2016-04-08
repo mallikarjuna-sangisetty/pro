@@ -22,10 +22,10 @@ public class UserRepositoryImplTest{
 	public void getAll(){
 		List<User> list = repository.findAll();
 		for (User user : list) {
-			System.out.println(user.getTickets());
+			System.out.println(user);
 		}
 		userProfileHandler.displayUser(list);
 	}
 
-
+  
 }

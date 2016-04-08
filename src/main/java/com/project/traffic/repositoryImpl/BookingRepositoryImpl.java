@@ -14,6 +14,7 @@ import com.project.traffic.model.CoPassenger;
 import com.project.traffic.model.TransportaionDetails;
 import com.project.traffic.persistenceUtil.DataBaseUtil;
 import com.project.traffic.repository.BookingRepository;
+import com.project.traffic.util.DateUtil;
 
 public class BookingRepositoryImpl implements BookingRepository{
 
@@ -64,7 +65,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 		session.close();
 		return rows;
 	}
-	
+
 	@Override
 	public List<TransportaionDetails> getAllBookingsByUser(Integer id) {
 		Session session = DataBaseUtil.getSession();
@@ -86,7 +87,7 @@ public class BookingRepositoryImpl implements BookingRepository{
 		}
 		session.getTransaction().commit();
 		session.close();
-		return false;
+		return true;
 	}
 
 
@@ -97,6 +98,33 @@ public class BookingRepositoryImpl implements BookingRepository{
 		session.update(bookTicket);
 		session.getTransaction().commit();
 		session.close();
-		return false;
+		return true;
+	}
+
+	@Override
+	public List<BookTicket> getAllBookedDetails(String username) {
+		Session session = DataBaseUtil.getSession();
+		Criteria criteria = session.createCriteria(BookTicket.class);
+		List<BookTicket> rows = criteria.list();
+		return rows;
+	}
+
+	@Override
+	public List<BookTicket> getAllBookedDetails(int user_id) {
+		Session session = DataBaseUtil.getSession();
+		Criteria criteria = session.createCriteria(BookTicket.class);
+		criteria.add(Restrictions.eq("user.id", user_id));
+		criteria.add(Restrictions.eq("status", StatusType.ACTIVE));
+		criteria.add(Restrictions.ge("travelDate",DateUtil.getDate()));
+		List<BookTicket> rows = criteria.list();
+		return rows;
+	}
+	@Override
+	public List<CoPassenger> coPassengerList(int book_id) {
+		Session session = DataBaseUtil.getSession();
+		Criteria criteria = session.createCriteria(CoPassenger.class);
+		criteria.add(Restrictions.eq("book_id", book_id));
+		List<CoPassenger> rows = criteria.list();
+		return rows;	
 	}
 }

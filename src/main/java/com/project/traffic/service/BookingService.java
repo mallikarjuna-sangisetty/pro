@@ -14,4 +14,7 @@ public interface BookingService {
 	List<TransportaionDetails> findByProvider(String provider);
 	boolean bookForCopassengers(Set<CoPassenger> coPassengers);
 	boolean cancelTicket(BookTicket bookTicket);
+	List<BookTicket> getAllBookedDetails(String username);
+	List<BookTicket> getAllBookedDetails(int user_id);
+	List<CoPassenger> coPassengerList(int book_id);
 }

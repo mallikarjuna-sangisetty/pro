@@ -1,8 +1,5 @@
 package com.project.traffic.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.project.traffic.enums.EnumUtils.StatusType;
@@ -33,6 +29,7 @@ public class BookTicket {
 
 	private String travelDate;
 	private StatusType status;
+	private Integer total;
 	
 	private String bookedDate;
 	private String cancelledDate;
@@ -68,12 +65,12 @@ public class BookTicket {
 	public void setTransportaionDetails(TransportaionDetails transportaionDetails) {
 		this.transportaionDetails = transportaionDetails;
 	}
-	@Override
+	/*@Override
 	public String toString() {
 		return "BookTicket [id=" + id + ", user=" + user + ", transportaionDetails=" + transportaionDetails
 				+ ", bookedDate=" + bookedDate + ", cancelledDate=" + cancelledDate
 				+ "]";
-	}
+	}*/
 	public StatusType getStatus() {
 		return status;
 	}
@@ -86,6 +83,18 @@ public class BookTicket {
 	public void setTravelDate(String travelDate) {
 		this.travelDate = travelDate;
 	}
+    /**
+     * @return the total
+     */
+    public Integer getTotal() {
+        return total;
+    }
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 	
 	
 }

@@ -1,13 +1,10 @@
 package com.project.traffic.util;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
-
-import com.project.traffic.mail.SSLMailUtil;
 
 public class FileUtil {
 	private static final Logger LOGGER = Logger.getLogger(FileUtil.class);

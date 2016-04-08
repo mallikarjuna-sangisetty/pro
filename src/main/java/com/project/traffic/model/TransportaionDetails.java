@@ -148,12 +148,12 @@ public class TransportaionDetails {
 	public void setTickets(List<BookTicket> tickets) {
 		this.tickets = tickets;
 	}
-    @Override
+   /* @Override
 	public String toString() {
 		return "TransportaionDetails [id=" + id + ", source=" + source + ", destination=" + destination + ", distance="
 				+ distance + ", journeyTime=" + journeyTime + ", arrival=" + arrival + ", departure=" + departure
 				+ ", provider=" + provider + ", seats=" + seats + ", price=" + price + ", tickets=" + tickets + "]";
-	}
+	}*/
     /**
      * @return the provider
      */
