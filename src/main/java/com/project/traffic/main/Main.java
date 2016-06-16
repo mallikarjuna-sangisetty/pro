@@ -6,11 +6,11 @@ import com.project.traffic.uiImpl.UIImpl;
 public class Main {
 
 
-    private static UI ui;
+    private static UI testUI;
     public static void main(String[] args) {
 
-        ui = new UIImpl();
-        ui.homeMenu();
-
+    	testUI = new UIImpl();
+    	testUI.homeMenu();
+        System.out.println("");
     }
 }
