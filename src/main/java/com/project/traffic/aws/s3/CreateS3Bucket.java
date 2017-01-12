@@ -14,7 +14,7 @@ import com.amazonaws.services.s3.model.GetBucketLocationRequest;
 import com.project.traffic.util.FileUtil;
 
 public class CreateS3Bucket {
-	private static String bucketName     = "kavyasample";
+	private static String bucketName     = "kavyasampletest";
 	
 	public static void main(String[] args) throws IOException {
         AmazonS3 s3client = new AmazonS3Client(new BasicAWSCredentials(FileUtil.getvalue("accessKey"), FileUtil.getvalue("secretKey")));
