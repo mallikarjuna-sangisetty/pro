@@ -14,6 +14,7 @@ public class TransportaionDetailsControllerTest {
 	@BeforeClass
 	public static void setup(){
 		controller = new TransportaionDetailsController();
+		Object ob = new Objecct();
 	}
 	//@Test
 	public void feed(){
