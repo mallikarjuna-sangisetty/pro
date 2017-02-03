@@ -22,7 +22,7 @@ public class UserControllerTest {
 		user.setCreatedDate(new Date().toString());
 		user.setGender(GenderEnum.FEMALE);
 		//user.setEmail("kavya@gmail.com");
-		user.setPassword("pass");
+		user.setPassword("passsfdff");
 		user.setUserType(UserType.ADMIN.getType());
 		user.setStatus(StatusType.ACTIVE.getStatus());
 	}

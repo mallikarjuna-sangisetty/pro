@@ -6,7 +6,7 @@ public class SecurityUtilTest {
 
 	@Test
 	public void encryption() throws Exception{
-		String plainText = "kavya";
+		String plainText = "kavya123456";
 		SecurityUtil s = new SecurityUtil();
 		String encrypted = s.encryption(plainText);
 		System.out.println(encrypted);
