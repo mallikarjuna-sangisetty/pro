@@ -21,8 +21,9 @@ public class UserControllerTest {
 		user = new User();
 		user.setCreatedDate(new Date().toString());
 		user.setGender(GenderEnum.FEMALE);
+		user.setGender(GenderEnum.FEMALE);
 		//user.setEmail("kavya@gmail.com");
-		user.setPassword("passsfdff");
+		//user.setPassword("passsfdff");
 		user.setUserType(UserType.ADMIN.getType());
 		user.setStatus(StatusType.ACTIVE.getStatus());
 	}
@@ -30,5 +31,9 @@ public class UserControllerTest {
 	@Test
 	public void testSaveUser(){
 		controller.saveUser(user);
+	}
+	
+	public void test(){
+		
 	}
 }
