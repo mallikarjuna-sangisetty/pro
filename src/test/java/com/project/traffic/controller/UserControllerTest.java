@@ -11,6 +11,9 @@ import com.project.traffic.enums.EnumUtils.UserType;
 import com.project.traffic.model.User;
 
 public class UserControllerTest {
+	
+	
+	
 
 	private static UserController controller;
 	private static User user;
