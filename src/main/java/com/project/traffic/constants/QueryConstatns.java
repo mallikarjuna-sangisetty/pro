@@ -12,5 +12,5 @@ public class QueryConstatns {
                                                 + "where YEAR(STR_TO_DATE(bookedDate, '%m/%d/%Y')) in(?) "
                                                 + "group by YEAR(STR_TO_DATE(bookedDate, '%m/%d/%Y')) ;";
     public static String YEAR_WISE_REVENUE = "";
-    
+    //some comment
 }
